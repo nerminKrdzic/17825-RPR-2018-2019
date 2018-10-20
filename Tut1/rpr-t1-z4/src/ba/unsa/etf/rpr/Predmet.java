@@ -42,6 +42,7 @@ public class Predmet {
     }
 
     public Boolean Upisan(Student student){
+        if(studenti == null) return false;
         for(Student s : studenti)
             if(s.getBrojIndexa().equals(student.getBrojIndexa())) return true;
         return false;
