@@ -61,7 +61,7 @@ public class Program {
         return false;
     }
 
-    private void KreirajPredmet (String nazivPredmeta, Integer sifraPredmeta, int maxBrojStudenata){
+    public void KreirajPredmet (String nazivPredmeta, Integer sifraPredmeta, int maxBrojStudenata){
         if(!ProvjeriPodatkePredmeta(nazivPredmeta, sifraPredmeta, maxBrojStudenata)) return;
         if(predmeti == null || predmeti.length == 0){
             predmeti = new Predmet[1];
@@ -74,7 +74,7 @@ public class Program {
         novi[predmeti.length] = new Predmet(nazivPredmeta, sifraPredmeta, maxBrojStudenata);
         predmeti = novi;
     }
-    private void DodajStudenta(String prezime, String ime, Integer brojIndexa){
+    public void DodajStudenta(String prezime, String ime, Integer brojIndexa){
         if(!ProvjeriPodatkeStudenta(prezime, ime, brojIndexa)) return;
         if(studenti == null || studenti.length == 0){
             studenti = new Student[1];
@@ -87,7 +87,7 @@ public class Program {
         novi[studenti.length] = new Student(ime, prezime, brojIndexa);
         studenti = novi;
     }
-    private void UpisiStudentaNaPredmet(Integer brojIndexa, String nazivPredmeta){
+    public void UpisiStudentaNaPredmet(Integer brojIndexa, String nazivPredmeta){
         if(!ImaStudent(brojIndexa)){
             System.out.println("Student nije nadjen!");
             return;
@@ -106,7 +106,7 @@ public class Program {
                         }
             }
     }
-    private void IspisiStudentaSaPredmeta(Integer brojIndexa, String nazivPredmeta){
+    public void IspisiStudentaSaPredmeta(Integer brojIndexa, String nazivPredmeta){
         if(!ImaStudent(brojIndexa)){
             System.out.println("Student nije nadjen!");
             return;
@@ -125,7 +125,7 @@ public class Program {
                         }
             }
     }
-    private void ObrisiStudenta(Integer brojIndexa){
+    public void ObrisiStudenta(Integer brojIndexa){
         if(!ImaStudent(brojIndexa)){
             System.out.println("Student nije nadjen!");
             return;
@@ -145,7 +145,7 @@ public class Program {
         }
         studenti = novi;
     }
-    private void ObrisiPredmet(String nazivPredmeta){
+    public void ObrisiPredmet(String nazivPredmeta){
         if(!ImaPredmet(nazivPredmeta)){
             System.out.println("Predmet nije nadjen!");
             return;
@@ -161,7 +161,7 @@ public class Program {
         }
         predmeti = novi;
     }
-    private void IspisiSpisakStudenata(String nazivPredmeta){
+    public void IspisiSpisakStudenata(String nazivPredmeta){
         for(Predmet p : predmeti)
             if(p.getNazivPredmeta().equalsIgnoreCase(nazivPredmeta)){
                 System.out.println(p);
