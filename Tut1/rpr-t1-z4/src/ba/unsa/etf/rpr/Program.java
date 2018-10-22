@@ -5,10 +5,25 @@ import java.util.Scanner;
 public class Program {
     private Predmet[] predmeti = null;
     private Student[] studenti = null;
+    public Predmet[] getPredmeti() {
+        return predmeti;
+    }
+
+    public void setPredmeti(Predmet[] predmeti) {
+        this.predmeti = predmeti;
+    }
+
+    public Student[] getStudenti() {
+        return studenti;
+    }
+
+    public void setStudenti(Student[] studenti) {
+        this.studenti = studenti;
+    }
 
     public Boolean ProvjeriPodatkePredmeta(String nazivPredmeta, Integer sifraPredmeta, int maxBrojStudenata){
-        if(nazivPredmeta.isEmpty()){
-            System.out.println("Niste unijeli naziv oredmeta!");
+        if(nazivPredmeta == null || nazivPredmeta.isEmpty()){
+            System.out.println("Niste unijeli naziv predmeta!");
             return false;
         }
         if(predmeti == null || predmeti.length == 0) return true;
@@ -25,15 +40,14 @@ public class Program {
             System.out.println("Maximalan broj studenata na predmetu ne moze biti nula!");
             return false;
         }
-
         return true;
     }
     public Boolean ProvjeriPodatkeStudenta(String prezime, String ime, Integer brojIndexa){
-        if(prezime.isEmpty()){
+        if(prezime == null || prezime.isEmpty()){
             System.out.println("Niste unijeli prezime studenta!");
             return false;
         }
-        if(ime.isEmpty()){
+        if(ime == null || ime.isEmpty()){
             System.out.println("Niste unijeli ime studenta!");
             return false;
         }
@@ -141,7 +155,11 @@ public class Program {
                 novi[i] = studenti[j];
                 j++;
             }
-            else j++;
+            else {
+                j++;
+                novi[i] = studenti[j];
+                j++;
+            }
         }
         studenti = novi;
     }
@@ -168,7 +186,6 @@ public class Program {
                 return;
             }
     }
-
     public void DodavanjeStudenta(){
         try{
             System.out.println("Unesite prezime");

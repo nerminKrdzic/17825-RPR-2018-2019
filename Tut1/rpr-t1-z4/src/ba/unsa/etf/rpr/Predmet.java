@@ -81,7 +81,11 @@ public class Predmet {
         for(int i = 0; i < novi.length; i++){
             if(!student.getBrojIndexa().equals(studenti[j].getBrojIndexa()))
                 novi[i] = studenti[j];
-            else j++;
+            else {
+                j++;
+                novi[i] = studenti[j];
+                j++;
+            }
         }
         this.studenti = novi;
     }
